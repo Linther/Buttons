@@ -1,25 +1,76 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { AppBar, Toolbar, IconButton, Typography, Button, createTheme, ThemeProvider, Paper } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import StackGrid from "react-stack-grid";
+import { ButtonDisplay } from './components/ButtonDisplay';
 
-function App() {
+
+const theme = createTheme({
+  palette: {
+    background: {
+      paper: '#e4b5a0',
+    },
+    text: {
+      primary: '#173A5E',
+      secondary: '#46505A',
+    },
+    action: {
+      active: '#001E3C',
+    },
+    primary: {
+      main: '#964322',
+    },
+    secondary: {
+      main: '#e4f3fb'
+    }
+  },
+});
+
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme} >
+
+      <Paper elevation={0} sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignContent: 'center',
+        textAlign: 'center',
+        height: '100%',
+        maxWidth: '100%'
+      }}>
+        <Paper className="App-header" sx={{}}>
+          <AppBar position="static" >
+            <Toolbar>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Button Boys
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Paper>
+
+
+
+
+        <Paper elevation={0} sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          flex: 9,
+          height: '80%',
+          overflowY: 'scroll',
+          // overflowX: 'clip'
+        }}>
+          <ButtonDisplay/>
+
+        </Paper>
+      </Paper>
+    </ThemeProvider >
+
   );
 }
 
