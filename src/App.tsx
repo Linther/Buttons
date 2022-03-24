@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { AppBar, Toolbar, IconButton, Typography, Button, createTheme, ThemeProvider, Paper } from '@mui/material';
@@ -31,6 +31,7 @@ const theme = createTheme({
 
 
 const App = () => {
+
   return (
     <ThemeProvider theme={theme} >
 
@@ -41,7 +42,7 @@ const App = () => {
         alignContent: 'center',
         textAlign: 'center',
         height: '100%',
-        maxWidth: '100%'
+        width: '100%'
       }}>
         <Paper className="App-header" sx={{}}>
           <AppBar position="static" >
@@ -52,10 +53,6 @@ const App = () => {
             </Toolbar>
           </AppBar>
         </Paper>
-
-
-
-
         <Paper elevation={0} sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -63,9 +60,8 @@ const App = () => {
           flex: 9,
           height: '80%',
           overflowY: 'scroll',
-          // overflowX: 'clip'
         }}>
-          <ButtonDisplay/>
+          <ButtonDisplay />
 
         </Paper>
       </Paper>
